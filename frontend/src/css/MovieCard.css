@@ -1,0 +1,18 @@
+.fav-btn{
+    background-color: black;
+}
+
+.fav-btn:active{
+    background-color: red;
+}
+
+
+.movie_card{
+    /* display: flex; */
+    height: 40vh;
+    width: 25vw;
+}
+
+img{
+    height: 45vh;
+}
