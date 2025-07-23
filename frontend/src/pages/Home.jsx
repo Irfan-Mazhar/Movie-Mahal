@@ -1,21 +1,22 @@
 import MovieCard from "../components/MovieCard";
 import { useEffect, useState } from "react";
 import { getPopularMovies, searchMovies } from "../services/api";
+
 // import "../css/Home.css"
-import React from "react";
-import { Link } from "react-router-dom";
+
+import { useMovieContext } from "../contexts/MovieContext";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [movies, setMovies] = useState([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const { movies, setMovies, loading, setLoading, error, setError } =
+    useMovieContext();
 
   useEffect(() => {
     const loadPopularMovies = async () => {
       try {
         const popularMovies = await getPopularMovies();
         setMovies(popularMovies);
+        // setResetMovies(popularMovies)
       } catch (err) {
         console.log(err);
         setError("Failed to load movies");
@@ -24,12 +25,7 @@ function Home() {
       }
     };
     loadPopularMovies();
-  }, []);
-
-  //     {id: 1, title:"John Wick" , release_date: 2020},
-  //     {id: 2, title:"Superman" , release_date: 2025},
-  //     {id: 3 , title:"Batman" , release_date: 2023},
-  // ];
+  }, [searchQuery === ""]);
 
   const handleSearch = async (e) => {
     e.preventDefault();
