@@ -1,22 +1,30 @@
 import MovieCard from "../components/MovieCard";
-import Home from "./Home";
+import "../css/Favorites.css"
 import { useMovieContext } from "../contexts/MovieContext";
-function Favorites () {
-    const {favorites} = useMovieContext();
-
-    if(favorites) { return( <div className="movie_grid">
+import {useEffect} from "react";
+function Favorites() {
+  const { favorites ,setFavorites,addToFav,movie} = useMovieContext();
+  // useEffect(() => {
+  //     if(movie) addToFav(movie)
+  //   }, []);
+  if (favorites) {
+    return (
+      <div className="favorites-container">
+        <h2>FAVORITE MOVIES</h2>
+        <div className="fav_movie_grid">
           {favorites.map((movie) => (
             // movie.title.toLowerCase().startsWith(searchQuery) &&
             <MovieCard movie={movie} key={movie.id} />
           ))}
         </div>
+      </div>
     );
-    }
-    return(
-        <div className="Fav_container">
-            <h2>FAVORITES</h2>
-            
-        </div>
+  } else {
+    return (
+      <div>
+        <h3>No Favorite Movies...</h3>
+      </div>
     );
+  }
 }
 export default Favorites;

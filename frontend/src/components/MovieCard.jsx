@@ -1,5 +1,5 @@
 import { useMovieContext } from "../contexts/MovieContext";
-// import "../css/MovieCard.css";
+import "../css/MovieCard.css";
 
 function MovieCard({ movie }) {
   const { addToFav, removeFav, isFav } = useMovieContext();
@@ -23,13 +23,13 @@ function MovieCard({ movie }) {
             className={`fav-btn ${favorite ? "active" : ""}`}
             onClick={onFavClick}
           >
-            FAV
+            ❤️
           </button>
         </div>
       </div>
       <div className="movie_info">
         <h3>{movie.title}</h3>
-        <p>{movie.release_date}</p>
+        <p>{movie.release_date?.split("-")[0]}</p>
       </div>
     </div>
   );

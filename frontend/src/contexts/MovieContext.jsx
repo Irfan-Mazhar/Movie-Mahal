@@ -6,7 +6,8 @@ const MovieContext = createContext();
 export const useMovieContext = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
-  const [favorites, setFavorites] = useState([]);
+  
+  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem("favorites")));
 
   useEffect(() => {
     const storedFav = localStorage.getItem("favorites");

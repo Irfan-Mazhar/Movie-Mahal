@@ -2,7 +2,7 @@ import MovieCard from "../components/MovieCard";
 import { useEffect, useState } from "react";
 import { getPopularMovies, searchMovies } from "../services/api";
 
-// import "../css/Home.css"
+import "../css/Home.css"
 
 import { useMovieContext } from "../contexts/MovieContext";
 
