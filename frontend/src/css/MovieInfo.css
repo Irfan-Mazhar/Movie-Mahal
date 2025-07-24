@@ -50,12 +50,15 @@
 }
 
 .movie_info h3 {
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #fff;
 }
 
 .movie_info p {
-  font-size: 0.875rem;
+  font-size: 1.4rem;
   color: #bbb;
+}
+.release_date{
+    font-size: 1rem;
 }
