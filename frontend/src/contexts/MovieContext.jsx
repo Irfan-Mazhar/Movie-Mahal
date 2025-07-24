@@ -25,7 +25,9 @@ export const MovieProvider = ({ children }) => {
   }, [favorites]);
 
   const addToFav = (movie) => {
-    setFavorites((prev) => [...prev, movie]);
+    // setFavorites((prev) => [...prev, movie]);
+    setFavorites((prev) => [...(prev || []), movie]);
+
   };
 
   const removeFav = (movieId) => {
