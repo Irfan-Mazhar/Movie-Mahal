@@ -15,7 +15,7 @@ function MovieInfo({ movie, onClose }) {
             <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
           </svg>
         </button>
-        <div className="movie_info">
+        <div className="modal_info">
           <h3>{movie.title}</h3>
           <p>{movie.overview}</p>
           <p className="release_date">{movie.release_date}</p>
