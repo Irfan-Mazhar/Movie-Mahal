@@ -16,8 +16,13 @@ export const MovieProvider = ({ children }) => {
 
 
   useEffect(() => {
-    const storedFav = localStorage.getItem("favorites");
-    setFavorites(storedFav ? JSON.parse(storedFav) : []);
+    try {
+  const stored = JSON.parse(localStorage.getItem("favorites"));
+  return Array.isArray(stored) ? stored : [];
+} catch {
+  return [];
+}
+
   }, []);
 
   useEffect(() => {
