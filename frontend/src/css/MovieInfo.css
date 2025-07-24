@@ -1,0 +1,61 @@
+.modal_backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal_overlay {
+  background:#090330;
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+.close_btn {
+  position: absolute;
+  top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 1rem;
+  width: 30px;
+  height: 30px;
+  /* background: transparent; */
+  background-color: rgb(217, 108, 0);
+  border-radius: 15px;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+}
+.close_btn svg:hover{
+    fill: black;
+    transition: 200ms ease;
+    transform: scale(1.1);
+}
+.movie_info {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.movie_info h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.movie_info p {
+  font-size: 0.875rem;
+  color: #bbb;
+}

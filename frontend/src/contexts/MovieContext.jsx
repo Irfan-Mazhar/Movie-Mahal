@@ -6,8 +6,9 @@ const MovieContext = createContext();
 export const useMovieContext = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
-  
-  const [favorites, setFavorites] = useState(JSON.parse(localStorage.getItem("favorites")));
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites"))
+  );
 
   useEffect(() => {
     const storedFav = localStorage.getItem("favorites");
@@ -44,6 +45,12 @@ export const MovieProvider = ({ children }) => {
     }
   };
 
+  const [selectedMovie, setSelectedMovie] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showInfo = (movie) => {
+    setSelectedMovie(movie);
+    setIsModalOpen(true);
+  };
   const value = {
     favorites,
     addToFav,
@@ -56,6 +63,11 @@ export const MovieProvider = ({ children }) => {
     setLoading,
     error,
     setError,
+    selectedMovie,
+    setSelectedMovie,
+    isModalOpen,
+    setIsModalOpen,
+    showInfo,
   };
 
   return (

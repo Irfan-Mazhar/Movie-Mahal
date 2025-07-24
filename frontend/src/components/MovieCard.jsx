@@ -1,19 +1,21 @@
 import { useMovieContext } from "../contexts/MovieContext";
 import "../css/MovieCard.css";
 
-function MovieCard({ movie }) {
-  const { addToFav, removeFav, isFav } = useMovieContext();
+function MovieCard({ movie, onClick }) {
+  const { addToFav, removeFav, isFav, setIsModalOpen } = useMovieContext();
   const favorite = isFav(movie.id);
 
   function onFavClick(e) {
     e.preventDefault();
+    e.stopPropagation();
+    // setIsModalOpen(false)
     if (favorite) removeFav(movie.id);
     else addToFav(movie);
   }
 
   return (
     <div className="movie_empty">
-      <div className="movie_card">
+      <div className="movie_card" onClick={onClick}>
         <img
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}

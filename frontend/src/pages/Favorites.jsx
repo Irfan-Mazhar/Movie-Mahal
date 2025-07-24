@@ -1,12 +1,12 @@
 import MovieCard from "../components/MovieCard";
-import "../css/Favorites.css"
+import MovieInfo from "../components/MovieInfo";
+import "../css/Favorites.css";
 import { useMovieContext } from "../contexts/MovieContext";
-import {useEffect} from "react";
+
 function Favorites() {
-  const { favorites ,setFavorites,addToFav,movie} = useMovieContext();
-  // useEffect(() => {
-  //     if(movie) addToFav(movie)
-  //   }, []);
+  const { favorites, isModalOpen, setIsModalOpen, selectedMovie, showInfo } =
+    useMovieContext();
+
   if (favorites) {
     return (
       <div className="favorites-container">
@@ -14,8 +14,20 @@ function Favorites() {
         <div className="fav_movie_grid">
           {favorites.map((movie) => (
             // movie.title.toLowerCase().startsWith(searchQuery) &&
-            <MovieCard movie={movie} key={movie.id} />
+            <MovieCard
+              movie={movie}
+              key={movie.id}
+              onClick={() => showInfo(movie)}
+            />
           ))}
+          {isModalOpen && (
+            <MovieInfo
+              movie={selectedMovie}
+              onClose={() => {
+                setIsModalOpen(false);
+              }}
+            />
+          )}
         </div>
       </div>
     );

@@ -1,15 +1,26 @@
 import MovieCard from "../components/MovieCard";
 import { useEffect, useState } from "react";
 import { getPopularMovies, searchMovies } from "../services/api";
-
-import "../css/Home.css"
+import MovieInfo from "../components/MovieInfo";
+import "../css/Home.css";
 
 import { useMovieContext } from "../contexts/MovieContext";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
-  const { movies, setMovies, loading, setLoading, error, setError } =
-    useMovieContext();
+
+  const {
+    movies,
+    setMovies,
+    loading,
+    setLoading,
+    error,
+    setError,
+    isModalOpen,
+    setIsModalOpen,
+    selectedMovie,
+    showInfo,
+  } = useMovieContext();
 
   useEffect(() => {
     const loadPopularMovies = async () => {
@@ -67,8 +78,18 @@ function Home() {
       ) : (
         <div className="movie_grid">
           {movies.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
+            <MovieCard
+              movie={movie}
+              key={movie.id}
+              onClick={() => showInfo(movie)}
+            />
           ))}
+          {isModalOpen && (
+            <MovieInfo
+              movie={selectedMovie}
+              onClose={() => setIsModalOpen(false)}
+            />
+          )}
         </div>
       )}
     </div>
