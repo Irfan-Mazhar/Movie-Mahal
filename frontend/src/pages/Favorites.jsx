@@ -7,7 +7,7 @@ function Favorites() {
   const { favorites, isModalOpen, setIsModalOpen, selectedMovie, showInfo } =
     useMovieContext();
 
-  if (favorites) {
+  if (favorites.length!=0) {
     return (
       <div className="favorites-container">
         <h2>FAVORITE MOVIES</h2>
@@ -31,10 +31,12 @@ function Favorites() {
         </div>
       </div>
     );
-  } else {
+  } else{
     return (
-      <div>
-        <h3>No Favorite Movies...</h3>
+      <div className="favorites-container">
+        <h2>NO FAVORITE MOVIES</h2>
+        <p>Click the heart icon to start adding your favorite movies!</p>
+
       </div>
     );
   }

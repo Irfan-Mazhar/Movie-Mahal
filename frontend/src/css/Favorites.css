@@ -11,19 +11,24 @@
   font-size: 3rem;
   font-weight: 800;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin-bottom: 1.5rem;
   text-align: center;
+  margin-bottom: 1.5rem;
+
   /* text-decoration: underline; */
   color: #ffffff; /* bold orange */
 }
 
-/* No favorites message */
-.favorites-container h3 {
-  font-size: 1.2rem;
+.favorites-container p{
+  font-size: 1.5rem;
+  font-weight: 400;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
-  color: #fff;
-  margin-top: 2rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+
 }
+/* No favorites message */
+
 
 /* Grid for movie cards */
 .fav_movie_grid {
