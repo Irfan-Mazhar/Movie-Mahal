@@ -29,8 +29,12 @@ export const MovieProvider = ({ children }) => {
   };
 
   const isFav = (movieId) => {
-    return favorites.some((movie) => movie.id === movieId);
+    return (
+      Array.isArray(favorites) &&
+      favorites.some((movie) => movie.id === movieId)
+    );
   };
+
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
