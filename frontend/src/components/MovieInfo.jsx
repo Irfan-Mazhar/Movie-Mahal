@@ -18,7 +18,7 @@ function MovieInfo({ movie, onClose }) {
         <div className="movie_info">
           <h3>{movie.title}</h3>
           <p>{movie.overview}</p>
-          <p>{movie.release_date}</p>
+          <p className="release_date">{movie.release_date}</p>
         </div>
       </div>
     </div>
